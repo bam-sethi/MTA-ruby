@@ -18,29 +18,43 @@
 # The key to the lab is the intersection of the lines at Union Square.
 # Make sure the stops that are the same for different lines have different names (i.e. 23rd on the N and on the 6 need to be differentiated).
 
-subway = { line_n: ['TS', '38', '28N', '23', 'US', '8']}
-puts("Line N = TS, 38, 28N, 23, US, 8")
-lineChoice = gets.chomp.downcase
+subway = { 'LINE N' => [ 'TS', '38', '28N', '23', 'US', '8' ], 'LINE L' => ['8', '6', 'US', '3', '1'], 'LINE 6' => ['GC', '33', '28', '23', 'US', 'AP'] }
+
+
+puts("LINE N = TS, 38, 28N, 23, US, 8")
+puts("LINE L = 8, 6, US, 3, 1")
+puts("LINE 6 = GC, 33, 28, 23, US, AP")
+
 puts "MTA Journey Planner"
 puts "Please choose a Line: "
-answer = gets.chomp.downcase
+answer = gets.chomp
 
 puts "Please choose your initial stop"
-initStop = gets.chomp.downcase
+initStop = gets.chomp
 puts "Please choose your destination stop"
-destStop = gets.chomp.downcase
+destStop = gets.chomp
 
-a = subway[:line_n].index(initStop)
-b = subway[:line_n].index(destStop)
+a = subway[answer].index(initStop).to_i
+
+
+b = subway[answer].index(destStop).to_i
 
 
 case answer
 
-when 'n'
-  stops = (a - b).abs
-  puts stops
-end
+when 'LINE N'
+  stops = a.to_i - b.to_i
+  puts stops.abs
 
+when 'LINE L'
+  stops = a.to_i - b.to_i
+  puts stops.abs
+
+when 'LINE 6'
+  stops = a.to_i - b.to_i
+  puts stops.abs
+
+end
 
 
 
