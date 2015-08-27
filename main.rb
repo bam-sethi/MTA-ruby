@@ -18,16 +18,16 @@
 # The key to the lab is the intersection of the lines at Union Square.
 # Make sure the stops that are the same for different lines have different names (i.e. 23rd on the N and on the 6 need to be differentiated).
 
-subway = { 'LINE N' => [ 'TS', '38', '28N', '23', 'US', '8' ], 'LINE L' => ['8', '6', 'US', '3', '1'], 'LINE 6' => ['GC', '33', '28', '23', 'US', 'AP'] }
-
+subway = { 'LINE N' => [ 'TS', '38', '28N', '23', 'US', '8' ], 'LINE L' => ['8L', '6', 'US', '3', '1'], 'LINE 6' => ['GC', '33', '28S', '23', 'US', 'AP'] }
 
 puts("LINE N = TS, 38, 28N, 23, US, 8")
-puts("LINE L = 8, 6, US, 3, 1")
-puts("LINE 6 = GC, 33, 28, 23, US, AP")
+puts("LINE L = 8L, 6, US, 3, 1")
+puts("LINE 6 = GC, 33, 28S, 23, US, AP")
 
+puts "Use Caps Lock!!"
 puts "MTA Journey Planner"
 puts "Please choose a Line: "
-answer = gets.chomp
+answer = gets.chomp.upcase
 
 puts "Please choose your initial stop"
 initStop = gets.chomp
@@ -46,6 +46,7 @@ when 'LINE N'
   stops = a.to_i - b.to_i
   puts stops.abs
 
+
 when 'LINE L'
   stops = a.to_i - b.to_i
   puts stops.abs
@@ -57,6 +58,7 @@ when 'LINE 6'
 end
 
 
+subway['LINE L'] & subway['LINE N'] & subway['LINE 6']
 
 
 
